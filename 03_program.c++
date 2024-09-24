@@ -63,9 +63,9 @@ void multiplyMatricesBlocked(int **A, int **B, int **C, int N, int blockSize)
 
 int main()
 {
-  int sizes[] = {0, 10, 20, 30, 50, 100};               // Tamaños de matriz actualizados
-  ofstream file("03_program.csv");                      // Nombre de archivo actualizado
-  file << "Size,Classic Time (ms),Blocked Time (ms)\n"; // Encabezados del CSV
+  int sizes[] = {0, 10, 20, 30, 50, 100, 1000, 1500, 2000, 4000}; // Tamaños de matriz actualizados
+  ofstream file("03_program.csv");                                // Nombre de archivo actualizado
+  file << "Size,Classic Time (ms),Blocked Time (ms)\n";           // Encabezados del CSV
 
   for (int N : sizes)
   {
