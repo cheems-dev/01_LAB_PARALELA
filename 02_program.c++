@@ -6,6 +6,7 @@ using namespace std;
 
 void multiplyMatrices(int **A, int **B, int **C, int N)
 {
+  // Inicializar la matriz C
   for (int i = 0; i < N; ++i)
   {
     for (int j = 0; j < N; ++j)

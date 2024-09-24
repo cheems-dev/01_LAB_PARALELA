@@ -3,7 +3,7 @@
 #include <chrono>
 #include <vector>
 
-void fila_por_fila(int MAX, std::vector<double> &tiempos)
+void rowByRow(int MAX, std::vector<double> &tiempos)
 {
   double A[MAX][MAX], x[MAX], y[MAX];
   // Inicializar A y x, y asignar y = 0
@@ -33,7 +33,7 @@ void fila_por_fila(int MAX, std::vector<double> &tiempos)
   tiempos.push_back(elapsed.count());                              // Guardar el tiempo en milisegundos
 }
 
-void columna_por_columna(int MAX, std::vector<double> &tiempos)
+void columnByColumn(int MAX, std::vector<double> &tiempos)
 {
   double A[MAX][MAX], x[MAX], y[MAX];
   // Inicializar A y x, y asignar y = 0
@@ -66,7 +66,7 @@ void columna_por_columna(int MAX, std::vector<double> &tiempos)
 int main()
 {
   std::vector<int> sizes = {25, 50, 75, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-  std::vector<double> tiempos_fila, tiempos_columna;
+  std::vector<double> timeRow, timeColumn;
 
   // Crear archivo para guardar resultados
   std::ofstream file("01_program.csv");
@@ -75,11 +75,11 @@ int main()
   // Ejecutar ambos algoritmos para cada tamaño y medir el tiempo en milisegundos
   for (int size : sizes)
   {
-    fila_por_fila(size, tiempos_fila);
-    columna_por_columna(size, tiempos_columna);
+    rowByRow(size, timeRow);
+    columnByColumn(size, timeColumn);
 
     // Guardar resultados en el archivo
-    file << size << "," << tiempos_fila.back() << "," << tiempos_columna.back() << "\n";
+    file << size << "," << timeRow.back() << "," << timeColumn.back() << "\n";
   }
 
   file.close(); // Cerrar el archivo después de guardar todos los resultados
